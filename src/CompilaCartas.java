@@ -143,4 +143,6 @@ public class CompilaCartas extends Carta{
     public void OrdenarCartasVolume(){
         System.out.println("Em construção");
     }
+
+    //Comentário novo rsrs
 }
