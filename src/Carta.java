@@ -12,6 +12,7 @@ public class Carta {
     }
 
     public void getCarta() {
+
         System.out.println("Data de envio:" + getData_envio());
 
         System.out.println("Remetente: " + getDados().getNome_crianca());

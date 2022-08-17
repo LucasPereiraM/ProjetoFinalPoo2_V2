@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,8 +16,16 @@ public class CartasController {
     @FXML
     private Tab abaCalcularPeso;
 
+    public CompilaCartas compila_cartas;
+
     @FXML
     private Tab abaMostrarCartas;
+
+    @FXML
+    private TextField cartasSelecionadas;
+
+    @FXML
+    private Button buscarButton;
 
     @FXML
     private Button botaoAnterior;
@@ -29,9 +38,6 @@ public class CartasController {
 
     @FXML
     private AnchorPane pnMostrarCartas;
-
-    @FXML
-    private CheckBox rdSelecionarCarta;
 
     @FXML
     private Label rotuloAltura;
@@ -70,6 +76,9 @@ public class CartasController {
     private Label rotuloTitulo;
 
     @FXML
+    private TextField showAllWeightOfCards;
+
+    @FXML
     private TextField txAltura;
 
     @FXML
@@ -102,23 +111,70 @@ public class CartasController {
     @FXML
     private TextField txResponsavel;
 
-    @FXML
-    void actionTxNCarta(ActionEvent event) {
+    private static ArrayList<Carta> cartas = CompilaCartas.getListaCartas();
+    private static int indice = -1;
+
+    public void showCard(int indice, String dataEnvio, String remetente, String responsavel, String contato,
+            String endereco, String item, float peso, float largura, float altura, String categoria) {
+        txNCarta.setText(String.valueOf(indice + 1));
+        txDataEnvio.setText(dataEnvio);
+        txRemetente.setText(remetente);
+        txResponsavel.setText(responsavel);
+        txContato.setText(contato);
+        txEndereco.setText(endereco);
+        txItem.setText(item);
+        txPeso.setText(String.valueOf(peso));
+        txLargura.setText(String.valueOf(largura));
+        txAltura.setText(String.valueOf(altura));
+        txCategoria.setText(categoria);
     }
 
     @FXML
-    void anteriorCarta(ActionEvent event) {
-
+    void anteriorCarta(ActionEvent event) throws Exception {
+        if (indice > 0) {
+            this.indice--;
+            Carta c = cartas.get(this.indice);
+            showCard(this.indice, c.getData_envio(), c.getDados().getNome_crianca(), c.getDados().getNome_res(),
+                    c.getDados().getTelefone(),
+                    c.getEndereco().getLogradouro() + " " + c.getEndereco().getNum_end() + " "
+                            + c.getEndereco().getBairro() + " " + c.getEndereco().getCidade(),
+                    c.getItem().getItem_pedido(), c.getItem().getPeso(), c.getItem().getLargura(),
+                    c.getItem().getAltura(), c.getItem().getCateg());
+        }
+        System.out.println("Carta anterior.");
     }
 
     @FXML
-    void proximaCarta(ActionEvent event) {
-        
+    void proximaCarta(ActionEvent event) throws Exception {
+        if (this.indice == -1)
+            this.indice++;
+
+        if (this.indice < cartas.size() - 1) {
+            this.indice++;
+            Carta c = cartas.get(this.indice);
+            showCard(this.indice, c.getData_envio(), c.getDados().getNome_crianca(), c.getDados().getNome_res(),
+                    c.getDados().getTelefone(),
+                    c.getEndereco().getLogradouro() + " " + c.getEndereco().getNum_end() + " "
+                            + c.getEndereco().getBairro() + " " + c.getEndereco().getCidade(),
+                    c.getItem().getItem_pedido(), c.getItem().getPeso(), c.getItem().getLargura(),
+                    c.getItem().getAltura(), c.getItem().getCateg());
+        }
+        System.out.println("Proxima carta.");
     }
 
     @FXML
-    void selecionarCarta(ActionEvent event) {
+    void calcularCartas(ActionEvent event) {
+        String cartasSelecionadasStr = cartasSelecionadas.getText();
+        String[] cartasSelecionadasArray = cartasSelecionadasStr.split(",", 0);
 
+        float pesoTotal = 0;
+
+        for (String idCarta : cartasSelecionadasArray) {
+            Carta c = cartas.get(Integer.parseInt(idCarta) - 1);
+            pesoTotal += c.getItem().getPeso();
+        }
+
+        showAllWeightOfCards.setText(String.valueOf(pesoTotal));
     }
 
 }
