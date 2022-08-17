@@ -12,13 +12,10 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     public static void main(String[] args) throws Exception {
-        launch(args);
+        
         CompilaCartas compila_cartas = new CompilaCartas();
         compila_cartas.mostraCartas();
-        compila_cartas.calculaAreaCartas();
-        compila_cartas.CalculaAreaEspecifica(3);
-        
-
+        launch(args);
     }
 
     @Override
