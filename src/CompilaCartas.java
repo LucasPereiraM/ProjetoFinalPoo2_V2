@@ -99,15 +99,6 @@ public class CompilaCartas extends Carta {
         }
     }
 
-    public void mostraCartas() {
-        int i = 1;
-        for (Carta n : lista_cartas) { // percorre toda lista de classes
-            System.out.println("Carta: " + i); // mostra o numero da carta
-            n.getCarta(); // mostra a carta
-            i++; // incrementa o número da carta a ser mostrao
-            System.out.println("-------------------------");
-        }
-    }
 
     public void calculaAreaCartas() {
         int i = 1;

@@ -11,29 +11,6 @@ public class Carta {
         this.item = i;
     }
 
-    public void getCarta() {
-
-        System.out.println("Data de envio:" + getData_envio());
-
-        System.out.println("Remetente: " + getDados().getNome_crianca());
-        System.out.println("Responsável: " + getDados().getNome_res());
-        System.out.println("Contato: " + getDados().getTelefone());
-
-        System.out.print("Endereço: " + getEndereco().getLogradouro() + ", ");
-        System.out.print(getEndereco().getNum_end() + ", ");
-        System.out.print(getEndereco().getBairro() + ", ");
-        System.out.print(getEndereco().getCidade() + ".");
-
-        System.out.println("Item: " + getItem().getItem_pedido());
-        System.out.println("Peso: " + getItem().getPeso() + "g");
-        System.out.println("Tamanho: " + getItem().getLargura() + "cm");
-        System.out.println("Tamanho: " + getItem().getAltura() + "cm");
-        System.out.println("Largura: " + getItem().getLargura() + "cm");
-        System.out.println("Altura: " + getItem().getAltura() + "cm");
-        System.out.println("Categoria: " + getItem().getCateg());
-
-    }
-
     public float calculaArea() {
         return getItem().getDimensao();
     }

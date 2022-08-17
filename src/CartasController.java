@@ -1,10 +1,8 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -112,7 +110,7 @@ public class CartasController {
     private TextField txResponsavel;
 
     private static ArrayList<Carta> cartas = CompilaCartas.getListaCartas();
-    private static int indice = -1;
+    private int indice = -1;
 
     public void showCard(int indice, String dataEnvio, String remetente, String responsavel, String contato,
             String endereco, String item, float peso, float largura, float altura, String categoria) {
@@ -132,6 +130,8 @@ public class CartasController {
     @FXML
     void anteriorCarta(ActionEvent event) throws Exception {
         if (indice > 0) {
+            botaoAnterior.setDisable(false);
+            botaoProxima.setDisable(false);
             this.indice--;
             Carta c = cartas.get(this.indice);
             showCard(this.indice, c.getData_envio(), c.getDados().getNome_crianca(), c.getDados().getNome_res(),
@@ -141,6 +141,11 @@ public class CartasController {
                     c.getItem().getItem_pedido(), c.getItem().getPeso(), c.getItem().getLargura(),
                     c.getItem().getAltura(), c.getItem().getCateg());
         }
+        
+        else
+            botaoAnterior.setDisable(true);
+        
+
         System.out.println("Carta anterior.");
     }
 
@@ -151,6 +156,8 @@ public class CartasController {
 
         if (this.indice < cartas.size() - 1) {
             this.indice++;
+            botaoProxima.setDisable(false);
+            botaoAnterior.setDisable(false);
             Carta c = cartas.get(this.indice);
             showCard(this.indice, c.getData_envio(), c.getDados().getNome_crianca(), c.getDados().getNome_res(),
                     c.getDados().getTelefone(),
@@ -159,6 +166,8 @@ public class CartasController {
                     c.getItem().getItem_pedido(), c.getItem().getPeso(), c.getItem().getLargura(),
                     c.getItem().getAltura(), c.getItem().getCateg());
         }
+        else 
+            botaoProxima.setDisable(true);
         System.out.println("Proxima carta.");
     }
 
@@ -171,7 +180,7 @@ public class CartasController {
 
         for (String idCarta : cartasSelecionadasArray) {
             Carta c = cartas.get(Integer.parseInt(idCarta) - 1);
-            pesoTotal += c.getItem().getPeso();
+            pesoTotal += c.getItem().getPeso()/1000.00;
         }
 
         showAllWeightOfCards.setText(String.valueOf(pesoTotal));
