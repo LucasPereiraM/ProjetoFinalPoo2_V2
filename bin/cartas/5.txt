@@ -1,0 +1,13 @@
+Data_do_envio: 15/11/2022
+Nome_da_crianca: Valéria Torres
+Logradouro: Av Longe
+Numero: 1000
+Bairro: Longe
+Cidade: Monte Carmelo
+Telefone_de_contato: (55)32111-1234
+Nome_do_responsavel: Rogério Torres
+Item_pedido: Tabuleiro de War
+Peso_do_objeto: 300
+Altura: 22
+Largura: 30
+Categorias: Frágil

@@ -1,0 +1,13 @@
+Data_do_envio: 15/05/2022
+Nome_da_crianca: Matheus Olivio
+Logradouro: Rua do Centro
+Numero: 01
+Bairro: Centro
+Cidade: Monte Carmelo
+Telefone_de_contato: (12)12121-1212
+Nome_do_responsavel: Flávia Olivio
+Item_pedido: Deck Magic
+Peso_do_objeto: 500
+Altura: 25
+Largura: 4
+Categorias: nenhuma

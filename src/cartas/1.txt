@@ -1,0 +1,13 @@
+Data_do_envio: 12/05/2022
+Nome_da_crianca: Paulo Dias
+Logradouro: Av das Asas
+Numero: 12
+Bairro: Centro
+Cidade: Monte Carmelo
+Telefone_de_contato: (34)98765-4321
+Nome_do_responsavel: Paulessia Dias
+Item_pedido: Skate com luzes
+Peso_do_objeto: 1500
+Altura: 20
+Largura: 10
+Categorias: Fragil

@@ -1,0 +1,13 @@
+Data_do_envio: 25/05/2022
+Nome_da_crianca: Denis Marques
+Logradouro: Rua do Programador
+Numero: 167
+Bairro: Boa Vista
+Cidade: Uberlândia
+Telefone_de_contato: (34)12345-6789
+Nome_do_responsavel: Marcos Marques
+Item_pedido: Patinete elétrico
+Peso_do_objeto: 5000
+Altura: 15
+Largura: 10
+Categorias: Eletrônico

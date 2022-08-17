@@ -1,0 +1,13 @@
+Data_do_envio: 26/07/2022
+Nome_da_crianca: Daniel Flores
+Logradouro: Rua das Flores
+Numero: 123
+Bairro: Araras
+Cidade: Uberlândia
+Telefone_de_contato: (12)12231-1214 
+Nome_do_responsavel: Maria Tereza
+Item_pedido: Tablet
+Peso_do_objeto: 1200
+Altura: 30
+Largura: 13
+Categorias: Eletrônico
