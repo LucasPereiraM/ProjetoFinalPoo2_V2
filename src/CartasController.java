@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class CartasController {
 
+    int i=30;
     @FXML
     private Tab abaCalcularPeso;
 
@@ -101,13 +102,17 @@ public class CartasController {
     private TextField txResponsavel;
 
     @FXML
+    void actionTxNCarta(ActionEvent event) {
+    }
+
+    @FXML
     void anteriorCarta(ActionEvent event) {
 
     }
 
     @FXML
     void proximaCarta(ActionEvent event) {
-
+        txNCarta.setText("" + i); //exemplo de como colocar valor de uma variável em uma caixa de texto
     }
 
     @FXML
